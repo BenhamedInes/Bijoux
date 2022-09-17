@@ -1,0 +1,64 @@
+<div class="container">
+
+  <div class="card mt-4" >
+    <div class="card-body bg-info">
+  <div class="row">
+    <form class="col-4 mt-2">
+        <input class="form-control me-2" type="text" placeholder="Recherche par Numéro" name="ct_Num " [(ngModel)]="ct_Num" (ngModelChange)= "Search()" >
+      </form>
+
+      <div class="col-4 mt-2">
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="SelectedVille" (change)="onChange($event)">
+          <option value="reset" selected>Sélectionner par Ville Client</option>
+          <option  *ngFor="let item of Clients" value="{{item.ct_Ville}}">{{item.ct_Ville}}</option>
+        </select>
+      
+  
+      </div>
+
+      <div class="col-4 mt-2">
+        <select class="form-select" aria-label="Default select example"[(ngModel)]="SelectedCO" (change)="onSelect($event)">
+          <option value="reset" selected>Sélectionner par Nom Collaborateur</option>
+          <option  *ngFor="let c of Clients" value="{{c.co_Nom}}">{{c.co_Nom}}</option>
+        </select>
+    
+      </div>
+    </div>
+    </div>
+    </div>
+  <div class="card mt-4" >
+    <div class="card-body">
+      <table  class="table table-hover" *ngIf="ClientList?.length > 0">
+      <thead>
+          <tr>
+              <th class="table-primary">Num</th>
+              <th> Intitule</th>
+              <th>Adresse</th>
+              <th>Code Region</th>
+              <th class="table-warning">Nom Collabo</th>
+              <th>Prenom Collabo</th>
+    
+    
+          </tr>
+
+     </thead>
+     <tbody>
+         <tr *ngFor="let dataItem of ClientList" >
+             <td class="table-primary">{{dataItem.ct_Num}}</td>
+             <td>{{dataItem.ct_Intitule}}</td>
+             <td>{{dataItem.ct_Adresse}}</td>
+             <td>{{dataItem.ct_CodeRegion}}</td>
+             <td class="table-warning">{{dataItem.co_Nom}}</td>
+             <td>{{dataItem.co_Prenom}}</td>
+         </tr>
+     </tbody>
+    
+    
+  </table>
+  <div class="alert alert-danger" role="alert" *ngIf="ClientList?.length== 0">
+    No Data 
+ </div>
+  </div>
+  </div>
+</div>
+    

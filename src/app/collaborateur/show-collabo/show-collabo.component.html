@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card mt-4" >
+    <div class="card-body">
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="table-primary" >Id Collaborateur</th>
+                    <th > Nom Collaborateur</th>
+                    <th > Prenom Collaborateur</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let dataItem of CollaborateurList" >
+                    <td class="table-primary" style="font-weight: bold;">{{dataItem.co_No}}</td>
+                    <td class="text-primary">{{dataItem.co_Nom}}</td>
+                    <td>{{dataItem.co_Prenom}}</td>
+                </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+  </div>
+</div>
